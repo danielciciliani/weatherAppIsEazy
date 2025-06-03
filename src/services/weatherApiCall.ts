@@ -1,5 +1,3 @@
-import { cities } from "../data/cities";
-
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 export async function getWeatherData(lat: number, long: number, city='London'){
