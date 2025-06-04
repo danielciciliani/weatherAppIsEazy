@@ -5,7 +5,7 @@ import { initReactI18next } from "react-i18next";
   .use(initReactI18next) 
   .init({
     resources: {
-      en: {
+      es: {
         translation: {
           "weather app": "app de clima",
           "Select your city": "Elige tu ciudad",
