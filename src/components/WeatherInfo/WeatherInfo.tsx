@@ -56,11 +56,10 @@ function WeatherInfo({ selectedCity, weatherData, selectedLanguage } : WeatherIn
         <p className="capitalize pt-4">{description}</p>
         <div className="flex justify-center gap-3 pt-1">
           <p>
-            {t("Min: ")} {formatTemp(tempMin)}
+            {t("Min")}: {formatTemp(tempMin)}
           </p>
           <p>
-            {t("Max: ")}
-            {formatTemp(tempMax)}
+            {t("Max")}: {formatTemp(tempMax)}
           </p>
         </div>
       </motion.div>

@@ -7,8 +7,8 @@ i18next.use(initReactI18next).init({
       translation: {
         "weather app": "app de clima",
         "Select your city": "Elige tu ciudad",
-        Min: "Mín",
-        Max: "Máx",
+        "Min": "Mín",
+        "Max": "Máx",
       },
     },
   },
