@@ -8,6 +8,7 @@ import CitySelector from './components/CitySelector/CitySelector';
 import i18next from './i18n';
 import WeatherInfo from './components/WeatherInfo/WeatherInfo';
 import Card from './components/UI/Card';
+import { motion } from "motion/react"
 
 function App() {
   const { t } = useTranslation();
@@ -37,19 +38,41 @@ function App() {
         setSelectedLanguage={setSelectedLanguage}>
       </LanguageSelector>
     </div>
-      <h1 className='capitalize'>{t ('weather app')}</h1>
+      <motion.h1 
+      initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+                duration: 0.8,
+                delay: 0.1,
+                scale: { type: "tween", transition: 0.4},
+            }}
+      className='capitalize'>{t ('weather app')}</motion.h1>
       <CitySelector 
         setSelectedCity={setSelectedCity}
         selectedCity={selectedCity}>  
       </CitySelector>
 
   { weatherData? (
-    <Card>
+    <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+                duration: 0.8,
+                delay: 0.5,
+                scale: { type: "tween", transition: 0.4 },
+            }}>
+
+            <Card>
       <WeatherInfo 
         weatherData={weatherData} 
-        selectedCity={selectedCity}>
+        selectedCity={selectedCity}
+        selectedLanguage={selectedLanguage}
+        >
       </WeatherInfo>
     </Card>    
+
+    </motion.div>
+    
 ) : (
      <p>Loading...</p> 
   )}

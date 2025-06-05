@@ -1,6 +1,8 @@
 import { useTranslation } from "react-i18next";
+import { motion } from "motion/react"
 
-function WeatherInfo({selectedCity, weatherData}){
+
+function WeatherInfo({selectedCity, weatherData, selectedLanguage }){
 
     const { t } = useTranslation();
 
@@ -14,7 +16,16 @@ function WeatherInfo({selectedCity, weatherData}){
     
 
     return (
-      <div>
+    <>
+      <motion.div
+      key={selectedCity + selectedLanguage}
+      initial={{ opacity: 0, scale: 1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+                duration: 0.6,
+                delay: 0.1,
+                scale: { type: "tween", visualDuration: 0.6},
+            }}>
         <div className='flex justify-center transition-all delay-500 duration-800 ease'>
           {
             icon && <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} 
@@ -28,7 +39,8 @@ function WeatherInfo({selectedCity, weatherData}){
           <p>{t ('Min: ')} {formatTemp(tempMin)}</p>
           <p>{t ('Max: ')}{formatTemp(tempMax)}</p>
         </div>
-      </div>
+      </motion.div>
+      </>
     );
 }
 
