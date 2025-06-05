@@ -1,19 +1,32 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
+interface WeatherData {
+  main: {
+    temp: number;
+    temp_min: number;
+    temp_max: number;
+  };
+  weather: {
+    description: string;
+    icon: string;
+  }[];
+  name: string;
+}
+
 interface WeatherInfoProps {
   selectedCity: string;
   selectedLanguage: string;
-  weatherData: object;
+  weatherData: WeatherData;
 }
 
 function WeatherInfo({ selectedCity, weatherData, selectedLanguage } : WeatherInfoProps) {
   const { t } = useTranslation();
 
-  const temp = weatherData?.main.temp || " ";
-  const tempMin = weatherData?.main.temp_min || " ";
-  const tempMax = weatherData?.main.temp_max || " ";
-  const description = weatherData?.weather[0].description || " ";
+  const temp = weatherData?.main.temp;
+  const tempMin = weatherData?.main.temp_min;
+  const tempMax = weatherData?.main.temp_max;
+  const description = weatherData?.weather[0].description;
   const icon = weatherData?.weather[0]?.icon || null;
 
   const formatTemp = (temp: number) => Math.round(temp) + "°";

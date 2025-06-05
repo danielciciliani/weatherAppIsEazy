@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import { useTranslation } from "react-i18next";
+import i18next from "./i18n";
+import { motion } from "motion/react";
+
 import { getWeatherData } from "./services/weatherApiCall";
 import { cities } from "./data/Cities";
-import { useTranslation } from "react-i18next";
 import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
-import CitySelector from "./components/CitySelector/citySelector";
-import i18next from "./i18n";
 import WeatherInfo from "./components/WeatherInfo/WeatherInfo";
 import Card from "./components/UI/Card";
-import { motion } from "motion/react";
+import CitySelector from "./components/citySelector/citySelector";
+
+import "./App.css";
 
 function App() {
   const { t } = useTranslation();
@@ -29,6 +31,8 @@ function App() {
 
     changeLanguageAndFetch();
   }, [selectedCity, selectedLanguage]);
+
+  console.log(weatherData);
 
   return (
     <>

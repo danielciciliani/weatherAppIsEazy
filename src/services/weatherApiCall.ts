@@ -11,7 +11,9 @@ export async function getWeatherData(lat: number, long: number, lang: string) {
 
     const data = await response.json();
     return data;
-  } catch (error) {
-    console.error(error.message);
+  } catch (error :unknown) {
+    if (error instanceof Error) {
+      console.error("Error: ", error.message);
+    }
   }
 }

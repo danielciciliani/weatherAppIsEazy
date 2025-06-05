@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 const availableLanguages = ["en", "es"];
 
 interface LanguageSelectorProps {
