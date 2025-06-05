@@ -8,7 +8,7 @@ import { cities } from "./data/Cities";
 import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
 import WeatherInfo from "./components/WeatherInfo/WeatherInfo";
 import Card from "./components/UI/Card";
-import CitySelector from "./components/citySelector/citySelector";
+import CitySelector from "./components/citySelector/CitySelector";
 
 import "./App.css";
 
@@ -56,9 +56,8 @@ function App() {
       </motion.h1>
       <CitySelector
         setSelectedCity={setSelectedCity}
-        selectedCity={selectedCity}
-      ></CitySelector>
-
+        selectedCity={selectedCity}>
+      </CitySelector>
       {weatherData ? (
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
