@@ -25,7 +25,7 @@ function CitySelector({ setSelectedCity, selectedCity } : CitySelectorProps) {
               setSelectedCity(city.name);
             }}
           >
-            {city.name}
+            {t(`${city.name}`)}
           </button>
         ))}
       </div>

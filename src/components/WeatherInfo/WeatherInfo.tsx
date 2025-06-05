@@ -51,7 +51,7 @@ function WeatherInfo({ selectedCity, weatherData, selectedLanguage } : WeatherIn
             />
           )}
         </div>
-        <p className="text-2xl">{selectedCity}</p>
+        <p className="text-2xl">{t(`${selectedCity}`)}</p>
         <p className="text-5xl md:text-6xl pt-6 md:pt-8">{formatTemp(temp)}</p>
         <p className="capitalize pt-4">{description}</p>
         <div className="flex justify-center gap-3 pt-1">
