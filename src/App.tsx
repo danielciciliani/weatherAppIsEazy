@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { getWeatherData } from "./services/WeatherApiCall";
+import { getWeatherData } from "./services/weatherApiCall";
 import { cities } from "./data/Cities";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
-import CitySelector from "./components/CitySelector/CitySelector";
+import CitySelector from "./components/CitySelector/citySelector";
 import i18next from "./i18n";
 import WeatherInfo from "./components/WeatherInfo/WeatherInfo";
 import Card from "./components/UI/Card";

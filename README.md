@@ -1,4 +1,4 @@
-# MBST Zara Challenge
+# Weather App
 
 Proyecto desplegado en Vercel: 
 
