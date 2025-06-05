@@ -1,54 +1,98 @@
-# React + TypeScript + Vite
+# MBST Zara Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto desplegado en Vercel: 
 
-Currently, two official plugins are available:
+Weather app es un prototipo de Aplicación Climatológica, según los requerimientos de la prueba técnica. Es una Single Page Application (SPA) creada en React.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Los usuarios pueden seleccionar entre 3 cuidades, y ver los datos que se obtienen desde la API de [text](https://openweathermap.org/)
 
-## Expanding the ESLint configuration
+## Requisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Dos idiomas, Inglés por defecto
+- Selección de 3 ciudades
+- Obtención de datos desde la API
+- Mostrar resultados: icono asociado, la descripción, la temperatura actual, mínima y máxima.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Instalación
+Pasos para instalar el proyecto localmente:
+
+1. Clonar el repositorio
+
+```bash
+git clone https://github.com/danielciciliani/weatherAppIsEazy
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Instalar dependecias de frontend
+```bash
+npm install
 ```
+3. Modificar el fichero `.env.example` colocando una API_KEY real para la conexión a la API, y quitando *".example"* del nombre del fichero.
+
+- Key de ejemplo:
+```bash
+VITE_WEATHER_API_KEY=abcdef12345678910
+```
+- Nombre del fichero corregido: `.env`.
+
+4. Iniciar el fronted en modo **develop**
+```bash
+npm run dev
+```
+
+La aplicacion estará disponible en [http://localhost:5173/](http://localhost:5173/)
+
+## Estructura del proyecto - frontend
+
+```bash
+client/
+├── dist/                   
+root/
+├── public/
+├── src/
+│ ├── assets/
+│ ├── components/         ## componentes
+│ │ ├── CitySelector/
+│ │ ├── LanguageSelector/
+│ │ ├── UI/
+│ │ └── WeatherInfo/
+│ ├── data/               ## data
+│ │ └── Cities.ts
+│ ├── services/           ## API call
+│ │ └── WeatherApiCall.ts
+│ ├── App.css
+│ ├── App.tsx
+│ ├── i18n.ts             ## translations
+│ ├── index.css
+│ ├── main.tsx
+│ └── vite-env.d.ts
+├── .env
+├── .gitignore
+├── .prettierignore
+├── .prettierrc
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+
+```
+
+## Arquitectura y flujo
+1. **SPA:** Cuando el usuario selecciona una ciudad, se muestra el detalle del clima de la misma, puede cambiar la selección en cualquier momento, y cambiar el idioma de la página. En ambos casos, se actualizarán los datos que se muestran. 
+
+## Desafío opcional - Test unitario 
+No se realizan test para la prueba.
+
+## Tecnologías utilizadas
+- **React**: para construir la UI.
+- **Vite**: para construccion rápida y *dev server*.
+- **Tailwind**: para los estilos de la aplicación.
+- **Motion**: para animaciones
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
