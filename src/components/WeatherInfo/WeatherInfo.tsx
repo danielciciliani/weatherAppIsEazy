@@ -1,7 +1,13 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
-function WeatherInfo({ selectedCity, weatherData, selectedLanguage }) {
+interface WeatherInfoProps {
+  selectedCity: string;
+  selectedLanguage: string;
+  weatherData: object;
+}
+
+function WeatherInfo({ selectedCity, weatherData, selectedLanguage } : WeatherInfoProps) {
   const { t } = useTranslation();
 
   const temp = weatherData?.main.temp || " ";

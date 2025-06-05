@@ -1,7 +1,12 @@
 import { cities } from "../../data/Cities";
 import { t } from "i18next";
 
-function CitySelector({ setSelectedCity, selectedCity }) {
+interface CitySelectorProps {
+  selectedCity: string;
+  setSelectedCity: (city: string) => void;
+}
+
+function CitySelector({ setSelectedCity, selectedCity } : CitySelectorProps) {
   const citiesData = cities;
 
   return (

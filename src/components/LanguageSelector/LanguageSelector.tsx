@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 
 const availableLanguages = ["en", "es"];
 
-function LanguageSelector({ selectedLanguage, setSelectedLanguage }) {
+interface LanguageSelectorProps {
+  selectedLanguage: string;
+  setSelectedLanguage: (lang: string) => void;
+}
+
+function LanguageSelector({ selectedLanguage, setSelectedLanguage } : LanguageSelectorProps)  {
   return (
     <>
       <div className="flex row gap-5 pt-3">
