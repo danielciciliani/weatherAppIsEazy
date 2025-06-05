@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-      <div className="flex absolute top-1 right-[20%]">
+      <div className="flex absolute top-1 right-[10%] md:right-[20%]">
         <LanguageSelector
           selectedLanguage={selectedLanguage}
           setSelectedLanguage={setSelectedLanguage}
